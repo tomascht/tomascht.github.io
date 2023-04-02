@@ -1,3 +1,3 @@
-import './components/TotalComponent.js';
-import './components/ButtonListComponent.js';
-import './components/ResetButtonComponent.js';
+import './src/components/TotalComponent.js';
+import './src/components/ButtonListComponent.js';
+import './src/components/ResetButtonComponent.js';
