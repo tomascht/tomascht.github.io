@@ -1,0 +1,9 @@
+{
+    "name": "water-tracker",
+    "theme_color": "#2196f3",
+    "background_color": "#2196f3",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "scope": "/src",
+    "start_url": "/src/index.html"
+  }
