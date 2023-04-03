@@ -19,7 +19,7 @@ class TotalComponent extends HTMLElement {
     }
 
     update() {
-        document.querySelector("h1.total").textContent = this.storageTotal();
+        document.querySelector("h1.total").textContent = `${this.storageTotal()} l`;
     }
 
     storageTotal() {
