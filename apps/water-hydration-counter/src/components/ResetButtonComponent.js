@@ -11,7 +11,8 @@ class ResetButtonComponent extends HTMLButtonElement {
     }
 
     connectedCallback() {
-        this.style.display = 'none';
+        const total = localStorage.getItem('total');
+        if (total == null) this.style.display = 'none';
         this.textContent = "Resetten";
     }
 
