@@ -32,7 +32,7 @@ class TotalComponent extends HTMLElement {
     updateStorageTotal(detail) {
         const currentTotal = this.storageTotal();
  
-        localStorage.setItem('total', currentTotal + parseFloat(detail));
+        localStorage.setItem('total', parseFloat(currentTotal) + parseFloat(detail));
     }
 }
 
