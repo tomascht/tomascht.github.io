@@ -24,7 +24,7 @@ class TotalComponent extends HTMLElement {
 
     storageTotal() {
         const storageTotal = localStorage.getItem('total');
-        if (storageTotal == null) return 0;
+        if (storageTotal == null || storageTotal == "NaN") return 0;
         
         parseFloat(storageTotal);
     }
