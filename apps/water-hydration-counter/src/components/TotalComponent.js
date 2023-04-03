@@ -1,34 +1,38 @@
 
 class TotalComponent extends HTMLElement {
-    get total() {
-        return parseFloat(this._total).toFixed(2);
-    }
-
-    set total(value) {
-        this._total += parseFloat(value);
-    }
-
     constructor() {
         super();
 
-        this._total = 0;
         addEventListener("updateTotal", ({ detail }) => {
-            this.total = detail;
+            this.updateStorageTotal(detail);
             this.update();
         });
 
         addEventListener("reset-total", () => {
-            this._total = 0;
+            localStorage.setItem('total', 0);
             this.update();
         })
     }
 
     connectedCallback() {
-        this.innerHTML = `<h1 class="total">${this.total} <span>l</span></h1>`;
+        this.innerHTML = `<h1 class="total">${this.storageTotal()} <span>l</span></h1>`;
     }
 
     update() {
-        document.querySelector("h1.total").textContent = this.total;
+        document.querySelector("h1.total").textContent = this.storageTotal();
+    }
+
+    storageTotal() {
+        const storageTotal = localStorage.getItem('total');
+        if (storageTotal == null) return 0;
+        
+        parseFloat(storageTotal);
+    }
+
+    updateStorageTotal(detail) {
+        const currentTotal = this.storageTotal();
+ 
+        localStorage.setItem('total', currentTotal + parseFloat(detail));
     }
 }
 
